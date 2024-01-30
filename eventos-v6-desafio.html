@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+    <div id="app">  
+        <div>
+            <button @click="alertar">Exibir Alerta</button>
+        </div>
+        <div>
+            <input @keyup="valor = $event.target.value" type="text">
+            <p>{{ valor }}</p>
+        </div>
+        <div>
+            <input @keydown.enter="valor = $event.target.value"  type="text">
+            <p>{{ valor }}</p>
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                valor: '',
+            },
+            methods:{
+                alertar(){
+                    alert('Alertando')
+                },
+                salvar(e){
+                    console.log(e)
+                    this.valor += e.key 
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
