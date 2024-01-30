@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    
+</head>
+<body>
+    <div id="app">  
+        <p v-once>{{ message }}</p>
+        <p>{{saudacao()}}</p>
+        <a :href="link">Google</a>
+        <p v-html="linkHtml"></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return{
+                    message: 'Hello Vue!',
+                    link: 'https://google.com.br',
+                    linkHtml: '<a href="https://google.com.br">Google</a>',
+                }
+               
+            },
+            methods: {
+                saudacao: function(){   
+                    this.message = 'Treta Treta'
+                    return this.message
+                }
+            }
+         
+        })
+    </script>
+</body>
+
+</html>
