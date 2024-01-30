@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+    <div id="app">  
+        <p>Name: {{ name }} - Age: {{ age }}</p>
+        <p></p>
+        <p>{{ idadeMultiplicada() }}</p>
+        <p>{{ numeroRandon() }}</p>
+        <div>
+            <img :src="link" height="400" alt="">
+        </div>
+        <div>
+            <input type="text" :value="name">
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return{
+                    name: 'Michel Alves',
+                    age: 30,
+                    link: 'https://sm.ign.com/ign_br/screenshot/3/3o-itachi-/3o-itachi-uchiha_k81j.jpg',
+                }
+               
+            },
+            methods: {
+                idadeMultiplicada(){   
+
+                    return this.age * 3
+                },
+                numeroRandon(){
+
+                    return Math.random(0,1);
+
+                }
+            }
+         
+        })
+    </script>
+</body>
+</html>
