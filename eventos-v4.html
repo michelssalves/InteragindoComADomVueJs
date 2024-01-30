@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+
+<body>
+    <div id="app">  
+        
+       <p>{{ contador }}</p> 
+       <button @click="somar(5, $event)">Somar + 1</button>
+       <p @mousemove="atualizarXY">Mouse: {{ x }} e {{ y }}
+            <span style="background-color: red;" @mousemove.stop="parar">PARAR</span>
+       </p>
+       <a @click.prevent href="http://google.com">Google</a>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                x:0,
+                y:0,
+            },
+            methods:{
+                somar(passo, e){
+                    this.contador += passo
+                },
+                atualizarXY(e){
+                    this.x = e.clientX
+                    this.y = e.clientY
+                },
+                parar(e){
+                   
+                    e.stopPropagation()
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
