@@ -11,6 +11,7 @@
         <p>Name: {{ name }} - Age: {{ age }}</p>
         <p></p>
         <p>{{ idadeMultiplicada() }}</p>
+        <p>{{ age * 3 }}</p>
         <p>{{ numeroRandon() }}</p>
         <div>
             <img :src="link" height="400" alt="">
@@ -37,7 +38,7 @@
                 },
                 numeroRandon(){
 
-                    return Math.random(0,1);
+                    return Math.random();
 
                 }
             }
