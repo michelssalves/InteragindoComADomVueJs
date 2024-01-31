@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+    <div id="app">  
+        <button @click="valor += 5">Somar 5</button>
+        <button @click="valor += 1">Somar 1</button>   
+        <p>Valor: {{ valor }}</p>    
+        <p>Resultado: {{ result }}</p>        
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                valor: 0,
+              
+            },
+            computed:{
+                result(){
+                    return this.valor == 37 ? 'Valor Igual' : 'Valor Diferente' 
+                }
+            },
+            watch:{
+                result(novo, antigo){
+                    setTimeout(() => {
+                        this.valor = 0
+                    }, 5000)
+                }
+
+
+            },
+        })
+    </script>
+</body>
+
+</html>
